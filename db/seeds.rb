@@ -9,7 +9,7 @@
 #   end
 Recipe.destroy_all
 
-Recipe.create(
+Recipe.create!(
   name: "Creamy garlic pasta",
   description: "STEP 1
  Begin by cooking the pasta following pack instructions. Meanwhile, melt the butter in your largest frying pan. Once foaming, add the garlic and 25 twists of a black pepper mill. Cook for 4-5 mins, until the garlic is light golden and fragrant.
@@ -23,15 +23,13 @@ Recipe.create(
   url: "https://images.immediate.co.uk/production/volatile/sites/30/2024/01/Creamy-garlic-pasta-d8623e7.jpg?quality=90&webp=true&resize=600,545",
   rating: 8.5
 )
-
-Recipe.create(
+Recipe.create!(
   name: "Couscous salad",
   description: "Tip the couscous into a large bowl and pour over the stock. Cover, then leave for 10 mins until fluffy and all the stock has been absorbed. Meanwhile, slice the onions and pepper, and dice the cucumber. Add these to the couscous, fork through the pesto, crumble in the feta, then sprinkle over pine nuts to serve.",
   url: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/couscous-9ab75f0.jpg?quality=90&webp=true&resize=500,454",
   rating: 8.1
 )
-
-Recipe.create(
+Recipe.create!(
   name: "Lemon pudding",
   description: "STEP 1
  Mix the sugar, butter, flour, eggs, lemon zest and vanilla together until creamy, then spoon into a medium microwave-proof baking dish. Microwave on High for 3 mins, turning halfway through cooking, until risen and set all the way through. Leave to stand for 1 min.
@@ -40,10 +38,25 @@ Recipe.create(
   url: "https://images.immediate.co.uk/production/volatile/sites/30/2008/05/microwave-lemon-sponge-pudding-d9e8e37.jpg?quality=90&webp=true&resize=600,545",
   rating: 7.8
 )
-
-Recipe.create(
+Recipe.create!(
   name: "Instant frozen berry yogurt",
   description: "Blend berries, yogurt and honey or agave syrup in a food processor for 20 seconds, until it comes together to a smooth ice-cream texture. Scoop into bowls and serve.",
   url: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1029452_10-563fda8.jpg?quality=90&webp=true&resize=440,400",
   rating: 9
 )
+
+puts "Done! #{Recipe.all.count} recipes created."
+
+Category.destroy_all
+
+Category.create!(
+  name: "Salads"
+)
+Category.create!(
+  name: "Hearty Mains"
+)
+Category.create!(
+  name: "Desserts"
+)
+
+puts "Done! #{Category.all.count} categories created."
