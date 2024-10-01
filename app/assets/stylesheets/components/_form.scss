@@ -1,0 +1,19 @@
+.form {
+  height: 300px;
+  width: 500px;
+  font-size: 24px;
+  font-weight: 550;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
+  margin: 50px auto;
+  padding: 20px;
+
+  input {
+    width: 100%;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}

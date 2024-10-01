@@ -1,15 +1,40 @@
-<div>
+<div class="banner" style="background-image: url('<%= image_path "card.jpg" %>')">
   <h1><%= @category.name %></h1>
 </div>
-<h3><%= link_to "Add a new recipe", new_category_bookmark_path(@category) %></h3>
-<div>
-  <ul>
-  <% @category.bookmarks.each do |bookmark| %>
-    <li>
-      <%= "#{bookmark.recipe.name} | " %>
-      <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this bookmark for ?"} %>
-    </li>
-  <% end %>
-  </ul>
-  <p><%= link_to "Back to categories", categories_path %></p>
+
+<div class="container">
+  <div class="title-top">
+    <h3>Recipes</h3>
+    <%= link_to "Add a recipe", new_category_bookmark_path(@category),class: "btn btn-warning" %>
+  </div>
+
+  <div class="cards">
+    <% @category.bookmarks.each do |bookmark| %>
+      <div class="card-recipe">
+        <%= image_tag(bookmark.recipe.url) %>
+
+      <%= link_to bookmark_path(bookmark),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this bookmark for ?"}, class: "btn-delete" do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+
+        <div class="container">
+          <div style="flex-grow: 1;">
+            <h4><%= bookmark.recipe.name %></h4>
+            <p><%= bookmark.recipe.description.truncate_words(50) %></p>
+          </div>
+
+          <div class="card-comment">
+            <div>
+              <i class="fa-solid fa-quote-left"></i><%= bookmark.comment.truncate_words(3) %>
+            </div>
+            <div>
+              <%= bookmark.recipe.rating %><%= "⭐️" * bookmark.recipe.rating %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
 </div>

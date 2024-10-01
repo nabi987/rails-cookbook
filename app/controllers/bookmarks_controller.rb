@@ -9,17 +9,16 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.category = @category
     if @bookmark.save
-      redirect_to bookmark_path(@bookmark)
+      redirect_to category_path(@category)
     else
       render :new, status: :unprocessable_entity
     end
+  end
 
-    def destroy
-      raise
-      @bookmark = Bookmark.find(params[:id])
-      @bookmark.destroy
-      redirect_to category_path(@bookmark.category), status: :see_other
-    end
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    redirect_to category_path(@bookmark.category), status: :see_other
   end
 
   private

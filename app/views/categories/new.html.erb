@@ -1,9 +1,9 @@
-<div>
+<div class="banner" style="background-image: url('<%= image_path "card.jpg" %>')">
   <h1>New category</h1>
 </div>
-<div>
+<div class="form">
   <%= simple_form_for(@category) do |f| %>
   <%= f.input :name %>
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-warning"%>
   <% end %>
 </div>

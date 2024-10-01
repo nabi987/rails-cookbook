@@ -7,6 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Bookmark.destroy_all
 Recipe.destroy_all
 
 Recipe.create!(
@@ -46,17 +47,3 @@ Recipe.create!(
 )
 
 puts "Done! #{Recipe.all.count} recipes created."
-
-Category.destroy_all
-
-Category.create!(
-  name: "Salads"
-)
-Category.create!(
-  name: "Hearty Mains"
-)
-Category.create!(
-  name: "Desserts"
-)
-
-puts "Done! #{Category.all.count} categories created."
