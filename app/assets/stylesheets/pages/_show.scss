@@ -30,11 +30,12 @@
   align-items: flex-end;
 }
 
-.container {
+.card-info {
   height: 200px;
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
+  margin: 10px 15px;
 }
 
 .btn-delete {
