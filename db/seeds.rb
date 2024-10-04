@@ -24,7 +24,7 @@ def recipe_builder(id)
     name: recipe["strMeal"],
     description: recipe["strInstructions"],
     url: recipe["strMealThumb"],
-    rating: rand(0..5)
+    rating: rand(2..5).round(1)
     )
 end
 
